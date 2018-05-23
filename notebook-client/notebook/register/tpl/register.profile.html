@@ -1,0 +1,32 @@
+<form ng-submit="next()">
+	<div class="form-group">
+		<label class="control-label">Gender</label>
+		<div>
+			<label class="control-label">
+				<input type="radio" name="gender" value="0" ng-model="gender"><span class="label">girl</span>
+			</label>
+			<label class="control-label">
+				<input type="radio" name="gender" value="1" ng-model="gender"><span class="label">boy</span>
+			</label>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="control-label">Birthday</label>
+		<div>
+			<select id="year" class="form-control" ng-model="curYear" ng-change="daysChange()">
+				<option ng-repeat="y in years">{{y}}</option>
+			</select>
+			<select id="month" class="form-control" ng-model="curMonth" ng-change="daysChange()">
+				<option ng-repeat="m in months">{{m | prefixNumber}}</option>
+			</select>
+			<select id="day" class="form-control" ng-model="curDay">
+				<option ng-repeat="day in days">{{day | prefixNumber}}</option>
+			</select>
+		</div>
+	</div>
+
+	<div class="form-group text-center">
+		<button type="button" class="btn btn-default" ng-click="prev()">Prev Section</button>
+		<button class="btn btn-active">Next Section</button>
+	</div>
+</form>

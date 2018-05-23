@@ -1,0 +1,18 @@
+<form ng-submit="submit()" enctype="application/x-www-form-urlencoded">
+	<div class="form-group">
+		<label class="control-label" for="nickname">NickName</label>
+		<input type="text" id="nickname" class="form-control" placeholder="NickName" ng-model="nickname">
+	</div>
+	<div class="form-group">
+		<label class="control-label" for="email">Email</label>
+		<input type="text" id="email" class="form-control" placeholder="Email" ng-model="email">
+	</div>
+	<div class="form-group">
+		<label class="control-label" for="hobby">Hobby</label>
+		<input type="text" id="hobby" class="form-control" placeholder="Hobby" ng-model="hobby">
+	</div>
+	<div class="form-group text-center">
+		<button type="button" class="btn btn-default" ng-click="prev()">Prev Section</button>
+		<button class="btn btn-active">Submit</button>
+	</div>
+</form>

@@ -1,0 +1,40 @@
+<div class="container">
+	<div class="header">
+		<div class="title">Comment List</div>
+	</div>
+	<div class="body comment-list">
+		<div class="comment-item" ng-repeat="item in comment_list">
+			<div class="comment-head">
+				<span class="icon-boy"></span>
+				<a class="pill" href="#{{item.username}}">{{item.nickname}}</a>
+				于 {{item['udate']|msdate:"yyyy-MM-dd HH:mm:ss"}}：{{$window.parseFloat(item['udate'])}}
+			</div>
+			<div class="comment-content">
+				{{item.content}}
+			</div>
+		</div>
+		<div class="comment-item" ng-if="comment_list.length===0">
+			<div class="comment-content">
+				骚年，请留下第一句评论!
+			</div>
+		</div>
+
+		<form class="comment-form" ng-submit="submit($event)">
+			<div class="form-group">
+				<input type="text" id="nickname" name="nickname"
+				       class="form-control" placeholder="your name" ng-model="nickname">
+			</div>
+
+			<div class="form-group">
+				<textarea name="content" id="content" rows="5"
+				          class="form-control" placeholder="comment content..."
+				          ng-model="content"></textarea>
+			</div>
+
+			<div class="form-group">
+				<button class="btn btn-active">提交评论</button>
+				<button type="reset" class="btn btn-default">重置</button>
+			</div>
+		</form>
+	</div>
+</div>

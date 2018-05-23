@@ -1,0 +1,271 @@
+// app
+@background : #222222;
+@font : Arial, sans-serif;
+
+// register
+@bg-header : #151515;
+@bg-body : #2F2F2F;
+
+// comment
+@comment-text-color : lighten(#00BE8F, 10%);
+
+// link
+@link-color : lighten(#00BE8F, 15%);
+@link-hover-color : darken(#00BE8F, 10%);
+
+// button
+@btn-default-background : #00BE8F;
+@btn-active-background : #3598DC;
+
+// form-control
+@font-control : @font;
+@border-color : lighten(#00BE8F, 5%);
+@background-outline : #dddddd;
+
+// --------------------------------------------------
+// app styles
+// --------------------------------------------------
+body{
+	background : @background;
+}
+body, ul, ol, li, image{
+	margin     : 0;
+	padding    : 0;
+	list-style : none;
+}
+a, a:link{
+	text-decoration : none;
+	color           : @link-color;
+}
+a:hover{
+	color : @link-hover-color;
+}
+// --------------------------------------------------
+// home styles
+// --------------------------------------------------
+
+.container{
+	width         : 588px;
+	//height : 605px;
+	margin        : 30px auto 0 auto;
+	border-radius : 8px;
+	overflow      : hidden;
+	font-family   : Arial, sans-serif;
+
+	.header{
+		height           : 230px - 60px;
+		color            : #ffffff;
+		background-color : @bg-header;
+		padding-top      : 60px;
+
+		.title{
+			font-size  : 40px;
+			overflow   : hidden;
+			text-align : center;
+		}
+	}
+
+	.body{
+		height           : auto;
+		background-color : @bg-body;
+	}
+}
+// --------------------------------------------------
+// register styles
+// --------------------------------------------------
+.register-container{
+	.container();
+
+	.header{
+		.nav{
+			overflow     : hidden;
+			margin       : 10px auto 0 auto;
+			box-sizing   : border-box;
+			padding-left : 155px;
+
+			li{
+				width : 86px;
+				float : left;
+
+				span{
+					display : block;
+				}
+
+				.number{
+					width            : 36px;
+					height           : 36px;
+					border-radius    : 50%;
+					text-align       : center;
+					line-height      : 36px;
+					color            : #ffffff;
+					background-color : #0B0708;
+					margin           : 0 auto 15px auto;
+				}
+
+				&.active .number{
+					background-color : #00BE8F;
+				}
+
+				.names{
+					font-size  : 13px;
+					text-align : center;
+				}
+			}
+		}
+	}
+}
+// --------------------------------------------------
+// comment styles
+// --------------------------------------------------
+.comment-list{
+	color   : @comment-text-color;
+	padding : 20px;
+
+	.pill{
+		@pill-color : fade(@comment-text-color, 20%);
+		border-radius    : 8px;
+		padding          : 2px 8px;
+		background-color : @pill-color;
+
+		&:hover{
+			background-color : fade(@pill-color, 5%);
+		}
+	}
+
+	.comment-item{
+		border-bottom  : 1px dotted lighten(@bg-body, 10%);
+		padding-bottom : 20px;
+		margin-bottom  : 30px;
+
+		.comment-head{
+		}
+
+		.comment-content{
+			@item-color : fade(@comment-text-color, 2%);
+			margin-top       : 10px;
+			padding          : 20px;
+			border-radius    : 10px;
+			background-color : @item-color;
+		}
+	}
+
+}
+// --------------------------------------------------
+// text styles
+// --------------------------------------------------
+.text-center{
+	text-align : center;
+}
+.text-middle{
+	vertical-align : middle;
+}
+// --------------------------------------------------
+// form styles
+// --------------------------------------------------
+form{
+	padding : 38px;
+
+	.form-group{
+		margin-bottom : 20px;
+
+		.label{
+			padding     : 0 5px;
+			display     : inline-block;
+			height      : 30px;
+			line-height : 30px;
+		}
+	}
+
+	.control-label{
+		color       : #ffffff;
+		font-family : @font-control;
+		font-size   : 16px;
+		padding     : 5px 20px 5px 0;
+		display     : inline-block;
+
+		input[type=radio]{
+			width          : 30px;
+			height         : 30px;
+			line-height    : 30px;
+			outline        : none;
+			vertical-align : middle;
+			border         : 1px solid transparent;
+		}
+	}
+
+	.form-control, .btn{
+		font-family   : @font-control;
+		font-size     : 18px;
+		border-radius : 6px;
+		height        : 54px;
+		outline       : none;
+		border        : 1px solid transparent;
+	}
+
+	input.form-control, textarea.form-control{
+		padding : 0 10px;
+		width   : e('calc(100% - 20px)');
+
+		&:focus{
+			border-color     : @border-color;
+			background-color : @background-outline;
+		}
+	}
+
+	textarea.form-control{
+		padding    : 10px;
+		min-height : 100px;
+		min-width  : e('calc(100% - 20px)');
+		max-width  : e('calc(100% - 20px)');
+	}
+
+	select.form-control{
+		padding : 0 10px;
+
+		&:focus{
+			border-color     : @border-color;
+			background-color : @background-outline;
+		}
+	}
+
+	.btn{
+		padding          : 0 50px;
+		color            : #ffffff;
+		background-color : #999999;
+		cursor           : pointer;
+		.btn-face(btn-default, @btn-default-background);
+		.btn-face(btn-active, @btn-active-background);
+	}
+
+	.placeholder(#cccccc);
+}
+// --------------------------------------------------
+// mixins
+// --------------------------------------------------
+.btn-face(@btn-name,@background){
+	&.@{btn-name}{
+		background-color : @background;
+
+		&:focus{
+			background-color : darken(@background, 8%);
+		}
+
+		&:hover{
+			background-color : darken(@background, 8%);
+		}
+	}
+}
+.placeholder(@color:#999999){
+	::-webkit-input-placeholder{ /* WebKit browsers */
+		color : @color;
+	}
+	:-moz-placeholder{ /* Mozilla Firefox 4 to 18 */
+		color : @color;
+	}
+	::-moz-placeholder{ /* Mozilla Firefox 19+ */
+		color : @color;
+	}
+	:-ms-input-placeholder{ /* Internet Explorer 10+ */
+		color : @color;
+	}
+}

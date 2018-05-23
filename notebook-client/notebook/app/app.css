@@ -1,0 +1,222 @@
+body {
+  background: #222222;
+}
+body,
+ul,
+ol,
+li,
+image {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+a,
+a:link {
+  text-decoration: none;
+  color: #0cffc3;
+}
+a:hover {
+  color: #008b69;
+}
+.container {
+  width: 588px;
+  margin: 30px auto 0 auto;
+  border-radius: 8px;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+.container .header {
+  height: 170px;
+  color: #ffffff;
+  background-color: #151515;
+  padding-top: 60px;
+}
+.container .header .title {
+  font-size: 40px;
+  overflow: hidden;
+  text-align: center;
+}
+.container .body {
+  height: auto;
+  background-color: #2F2F2F;
+}
+.register-container {
+  width: 588px;
+  margin: 30px auto 0 auto;
+  border-radius: 8px;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+.register-container .header {
+  height: 170px;
+  color: #ffffff;
+  background-color: #151515;
+  padding-top: 60px;
+}
+.register-container .header .title {
+  font-size: 40px;
+  overflow: hidden;
+  text-align: center;
+}
+.register-container .body {
+  height: auto;
+  background-color: #2F2F2F;
+}
+.register-container .header .nav {
+  overflow: hidden;
+  margin: 10px auto 0 auto;
+  box-sizing: border-box;
+  padding-left: 155px;
+}
+.register-container .header .nav li {
+  width: 86px;
+  float: left;
+}
+.register-container .header .nav li span {
+  display: block;
+}
+.register-container .header .nav li .number {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 36px;
+  color: #ffffff;
+  background-color: #0B0708;
+  margin: 0 auto 15px auto;
+}
+.register-container .header .nav li.active .number {
+  background-color: #00BE8F;
+}
+.register-container .header .nav li .names {
+  font-size: 13px;
+  text-align: center;
+}
+.comment-list {
+  color: #00f1b5;
+  padding: 20px;
+}
+.comment-list .pill {
+  border-radius: 8px;
+  padding: 2px 8px;
+  background-color: rgba(0, 241, 181, 0.2);
+}
+.comment-list .pill:hover {
+  background-color: rgba(0, 241, 181, 0.05);
+}
+.comment-list .comment-item {
+  border-bottom: 1px dotted #494949;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+}
+.comment-list .comment-item .comment-content {
+  margin-top: 10px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: rgba(0, 241, 181, 0.02);
+}
+.text-center {
+  text-align: center;
+}
+.text-middle {
+  vertical-align: middle;
+}
+form {
+  padding: 38px;
+}
+form .form-group {
+  margin-bottom: 20px;
+}
+form .form-group .label {
+  padding: 0 5px;
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+}
+form .control-label {
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  padding: 5px 20px 5px 0;
+  display: inline-block;
+}
+form .control-label input[type=radio] {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  outline: none;
+  vertical-align: middle;
+  border: 1px solid transparent;
+}
+form .form-control,
+form .btn {
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  border-radius: 6px;
+  height: 54px;
+  outline: none;
+  border: 1px solid transparent;
+}
+form input.form-control,
+form textarea.form-control {
+  padding: 0 10px;
+  width: calc(100% - 20px);
+}
+form input.form-control:focus,
+form textarea.form-control:focus {
+  border-color: #00d8a2;
+  background-color: #dddddd;
+}
+form textarea.form-control {
+  padding: 10px;
+  min-height: 100px;
+  min-width: calc(100% - 20px);
+  max-width: calc(100% - 20px);
+}
+form select.form-control {
+  padding: 0 10px;
+}
+form select.form-control:focus {
+  border-color: #00d8a2;
+  background-color: #dddddd;
+}
+form .btn {
+  padding: 0 50px;
+  color: #ffffff;
+  background-color: #999999;
+  cursor: pointer;
+}
+form .btn.btn-default {
+  background-color: #00BE8F;
+}
+form .btn.btn-default:focus {
+  background-color: #009570;
+}
+form .btn.btn-default:hover {
+  background-color: #009570;
+}
+form .btn.btn-active {
+  background-color: #3598DC;
+}
+form .btn.btn-active:focus {
+  background-color: #2283c6;
+}
+form .btn.btn-active:hover {
+  background-color: #2283c6;
+}
+form ::-webkit-input-placeholder {
+  /* WebKit browsers */
+  color: #cccccc;
+}
+form :-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #cccccc;
+}
+form ::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #cccccc;
+}
+form :-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  color: #cccccc;
+}
