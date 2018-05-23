@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>AngularJS Page Useing Bootstrap Framework</title>
+	<link rel="stylesheet" href="">
+
+	<script src="./lib/angular/angular-v1.6.6.js"></script>
+	<script>
+	let httpApp = angular.module( 'timeApp', [] );
+
+	httpApp.controller( 'dataCtrl', [
+		"$scope", "$interval",
+
+		function( $scope, $interval ){
+			let date=new Date();
+			$scope.date=date;
+			//上述两行代码，是为了解决刚进入页面的一秒内没有时间显示的问题。
+			$interval( function(){
+				let date=new Date();
+				$scope.date=date;
+			}, 1000 );
+		} ] );
+	</script>
+</head>
+<body ng-app="timeApp" ng-controller="dataCtrl">
+	<!--<h2>time: {{h}}:{{m}}:{{s}}</h2>-->
+	<h2>time:{{ date | date: "HH:mm:ss"}} </h2>
+</body>
+</html>

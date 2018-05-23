@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>AngularJS Page Useing Bootstrap Framework</title>
+	<link rel="stylesheet" href="">
+
+	<script src="./lib/angular/angular-v1.6.6.js"></script>
+	<script>
+	let app=angular.module('m_app',[]);
+	app.controller('c',['$scope','$http',function( $scope,$http ){
+
+		let http = $http.get( "conf.json" );
+		let searchobject={search:$scope.seach,top:$scope.top,bottom:$scope.bottom};
+		$scope.$watch( 'searchobject', function( newValue, oldValue ){
+			console.log( $scope.searchobject.search );
+		},true);
+
+
+		http.then(
+			// success callback
+			function success( response ){
+//				console.log( "success....." );
+//				console.log( response.data );
+//				console.log( response.status );
+//				console.log( response.headers );
+//				console.log( response.config );
+
+				$scope.searched = response.data;
+			},
+			// error callback
+			function error( response ){
+//				console.log( response );
+			}
+		);
+
+	}])
+	</script>
+</head>
+
+<body ng-app="m_app">
+	<div ng-controller="c">
+		<input type="text" name="搜索框" ng-model="search" placeholder="请输入要搜索的物品">
+		<input type="text" name="价格上限" ng-model="top" placeholder="价格上限">
+		<input type="text" name="价格下限" ng-model="bottom" placeholder="价格下限">
+
+		<ul>
+			<li ng-repeat="p in searched">
+				{{p.name}}
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

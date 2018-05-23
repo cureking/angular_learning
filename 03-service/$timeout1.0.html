@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>AngularJS Page Useing Bootstrap Framework</title>
+	<link rel="stylesheet" href="">
+
+	<script src="./lib/angular/angular-v1.6.6.js"></script>
+	<script>
+	let httpApp = angular.module( 'timeApp', [] );
+	let date=new Date();
+	console.log(date);
+	httpApp.controller( 'dataCtrl', [
+		"$scope", "$interval",
+		function( $scope, $interval ){
+			$scope.s = date.getSeconds();
+			$scope.m = date.getMinutes();
+			$scope.h = date.getHours();
+			$interval( function(){
+				$scope.s++;
+				if($scope.s!==0&&$scope.s%60===0){
+					$scope.m++;
+					$scope.s-=60;
+				}
+				if($scope.m!==0&&$scope.m%60===0){
+					$scope.h++;
+					$scope.m-=60;
+				}
+			}, 1000 );
+		} ] );
+	</script>
+</head>
+<body ng-app="timeApp" ng-controller="dataCtrl">
+	<h2>time: {{h}}:{{m}}:{{s}}</h2>
+</body>
+</html>

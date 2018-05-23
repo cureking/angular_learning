@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Http服务</title>
+	<script src="lib/angular/angular-v1.6.6.js"></script>
+	<script>
+	let httpApp = angular.module( 'httpApp', [] );
+
+	httpApp.controller( 'dataCtrl', [ "$scope", "$http", function( $scope, $http ){
+		let http = $http.get( "conf.json" );
+		//$http( { method: "get", url: "conf.json" } )
+		http.then(
+			// success callback
+			function success( response ){
+				console.log( "success....." );
+				console.log( response.data );
+				console.log( response.status );
+				console.log( response.headers );
+				console.log( response.config );
+
+				$scope.datas = response.data;
+			},
+			// error callback
+			function error( response ){
+				console.log( response );
+			}
+		);
+	} ] );
+	</script>
+</head>
+<body ng-app="httpApp">
+	<div ng-controller="dataCtrl">
+		<ul>
+			<li ng-repeat="p in datas">
+				{{p.name}}
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>AngularJS Template Page</title>
+	<script src="lib/angular/angular-v1.6.6.js"></script>
+	<script>
+	let app = angular.module( 'app', [] );
+	app.controller( 'ctrl', [ '$scope', function( $scope ){
+		$scope.student = {
+			firstname: 'john',
+			lastname: 'jorge',
+			rollno: '012-13414'
+		};
+		$scope.cost = 10;
+		$scope.quantity = 5;
+		$scope.marks = [ 'FSD8924F', 'FD82adfDF', 'Cio96OH89v', 'NBv89vFDH' ];
+	} ] );
+	</script>
+</head>
+
+<body>
+	<div ng-app="app" ng-controller="ctrl">
+		<p>Hello {{student.firstname + " " + student.lastname}}!</p>
+		<p>Expense on Books : {{cost * quantity}} Rs</p>
+		<p>Roll No: {{student.rollno}}</p>
+		<p>Marks(Math): {{marks[3]}}</p>
+		<ul>
+			<li ng-repeat="ns in marks | orderBy">{{ns}}</li>
+		</ul>
+	</div>
+</body>
+</html>

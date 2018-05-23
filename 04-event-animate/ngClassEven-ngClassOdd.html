@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>ngClassEven-ngClassOdd</title>
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js">
+
+	<script src="./lib/angular/angular-v1.6.6.js"></script>
+</head>
+<style>
+	.odd{
+		background: #29dadb;
+	}
+	.even{
+		background: #97dd40;
+	}
+</style>
+<body>
+	<div ng-app>
+		<table class="table table-bordered" ng-init="names=['John', 'Mary', 'Cate', 'Suz']">
+			<tbody>
+			<tr ng-repeat="name in names" ng-class-odd="'odd'" ng-class-even="'even'">
+				<td width="50">{{$index}}</td>
+				<td width="200">{{name}}</td>
+			</tr>
+			</tbody>
+		</table>
+
+	</div>
+</body>
+</html>

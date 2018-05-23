@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>AngularJS MVC</title>
+	<link rel="stylesheet" href="">
+
+	<script src="./lib/angular/angular-v1.6.6.js"></script>
+	<script>
+	let app = angular.module( 'm_app', [] );
+
+	app.controller( 'c_hello', [ '$scope', function( $scope )
+	{
+		$scope.firstWork = { text: "Hello" };
+	} ] );
+	</script>
+</head>
+<body ng-app="m_app">
+	<div ng-controller="c_hello">
+		<p>{{firstWork.text}} Angular!</p>
+	</div>
+</body>
+</html>

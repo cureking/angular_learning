@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>mousePoint</title>
+	<link rel="stylesheet" href="">
+
+	<script src="./lib/angular/angular-v1.6.6.js"></script>
+	<script>
+	let app = angular.module( 'm_app', [] );
+	app.controller( 'c', [ '$scope', function( $scope ){
+		$scope.top=0;
+		$scope.left=0;
+		$scope.toggle = function( $event ){
+			// 获取到当前点击元素在页面中的坐标
+			$scope.left=$event.screenX;
+			$scope.top=$event.screenY;
+		};
+
+	} ] );
+	</script>
+</head>
+<body ng-app="m_app" ng-controller="c" ng-mousemove="toggle($event)" style="height: 1000px;">
+	<p>鼠标坐标点：({{top}},{{left}})</p>
+</body>
+</html>

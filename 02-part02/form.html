@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>AngularJS Template Page</title>
+	<script src="lib/angular/angular-v1.6.6.js"></script>
+</head>
+
+<body>
+	<form ng-app name="myForm" ng-init="myText='test@runoob.com'">
+		Email:
+		<input type="email" name="myAddress" ng-model="myText" required>
+		<p>编辑邮箱地址，查看状态的改变。</p>
+		<h1>状态</h1>
+		<p>Valid: {{myForm.myAddress.$valid}} (如果输入的值是合法的则为 true)。</p>
+		<p>Dirty: {{myForm.myAddress.$dirty}} (如果值改变则为 true)。</p>
+		<p>Touched: {{myForm.myAddress.$touched}} (如果通过触屏点击则为 true)。</p>
+		<p>Error: {{myForm.myAddress.$error}} ($error 实际上是个对象，属性标志着子级状态。其值与 $valid 的值相反)。</p>
+	</form>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>ngSelected</title>
+	<link rel="stylesheet" href="">
+	<script src="./lib/angular/angular-v1.6.6.js"></script>
+</head>
+
+<body>
+	<div ng-app ng-init="sex='男'">
+		<label>
+			性别：{{sex}}
+			<select>
+				<option value="">--请选择--</option>
+				<option ng-selected="sex=='男'">男</option>
+				<option ng-selected="sex=='女'">女</option>
+			</select>
+		</label>
+		<button ng-click="sex= sex=='男'?'女':'男'">切换</button>
+	</div>
+</body>
+</html>

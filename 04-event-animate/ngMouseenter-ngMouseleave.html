@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>ngMouseenter-ngMouseleave</title>
+	<link rel="stylesheet" href="">
+
+	<script src="./lib/angular/angular-v1.6.6.js"></script>
+	<script>
+	let app = angular.module( 'app', [] );
+	app.controller( 'c', [ '$scope', function( $scope ){
+		$scope.enter = false;
+		$scope.enter = false;
+
+		$scope.enterHandle = function(){
+			$scope.enter=true;
+			$scope.leave=false;
+		};
+
+		$scope.leaveHandle = function leave(){
+			$scope.enter=false;
+			$scope.leave=true;
+		};
+	} ] );
+
+	</script>
+</head>
+
+<body>
+	<div ng-app="app" ng-controller="c">
+		<p>MouseEnter:{{enter}}</p>
+		<p>MouseLeave:{{leave}}</p>
+		<p>Mousepoint:{{point-x}},{{point-y}}</p>
+
+		<div style="width:200px;height:200px;background:#c00;"
+		     ng-mouseenter="enterHandle()"
+		     ng-mouseleave="leaveHandle()">
+			please
+		</div>
+	</div>
+</body>
+</html>

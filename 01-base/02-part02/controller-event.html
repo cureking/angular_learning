@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>AngularJS Template Page</title>
+	<script src="lib/angular/angular-v1.6.6.js"></script>
+	<script>
+	let app = angular.module( 'app', [] );
+	app.controller( 'c', [ '$scope', function( $scope ){
+			$scope.a = 10;
+
+			function handler( event, $s )
+			{
+				console.log( event );
+				$scope.a = $s[ 'a' ];
+			}
+
+			$scope.$on( 'CA_CHANGED', handler );
+			$scope.$on( 'CB_CHANGED', handler );
+		} ] )
+		.controller( 'ca', [ '$scope', function( $scope ){
+			$scope.ca = 'ca';
+			$scope.isShow = true;
+			$scope.$watch( 'a', function( newValue, oldValue ){
+				console.log( 'any:', oldValue, newValue );
+				$scope.$emit( 'CA_CHANGED', $scope );
+			} );
+		} ] )
+		.controller( 'cb', [ '$scope', function( $scope ){
+			$scope.cb = 'cb';
+			$scope.$watch( 'a', function( newValue, oldValue ){
+				console.log( 'any:', oldValue, newValue );
+				$scope.$emit( 'CB_CHANGED', $scope );
+			} );
+		} ] );
+	</script>
+</head>
+
+<body>
+	<div ng-app="app" ng-controller="c">
+		<p>{{a}}</p>
+		<input type="text" ng-model="a" placeholder="">
+		<div class="a" ng-controller="ca">
+			【{{ca}}】：<span ng-bind="a" ng-show="isShow"></span>
+			<input type="checkbox" ng-model="isShow" placeholder="">
+		</div>
+		<div class="b" ng-controller="cb">
+			【{{cb}}】：{{a}}
+			<input type="text" ng-model="a" placeholder="">
+		</div>
+	</div>
+</body>
+</html>
